@@ -1,5 +1,5 @@
-# PYTHONORC
-Uso de OCR no Python para captação de dados em PDF ou imagens.
+## PYTHONORC
+Uso de OCR no Python 🐍 para captação de dados em PDF ou imagens.
 
 * Dependencias
 1. wxPython 4.1.1
