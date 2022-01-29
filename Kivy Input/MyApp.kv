@@ -1,0 +1,85 @@
+#:import utils kivy.utils
+
+ScreenManager:
+    TelaMenu:
+    TelaConsulta:
+
+<TelaMenu>:
+    name: 'TelaMenu'
+    BoxLayout:
+        padding: 30,0,30,0
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: 1,0.3
+            padding: 0,30,0,0
+            Image:
+                source: 'extras/img/LogoPoggio.png'
+        
+        BoxLayout: #Box contendo os ProgressBars
+            orientation: 'vertical'
+            padding: 0,50,0,50
+            ProgressBar:
+                id: 'progressbar501'
+                value: 50
+                color: (0/250,0/250,0/250,1)
+                background_color: utils.get_color_from_hex('#8F8F8F')
+            Label:
+                text: 'TECIDO PLANO '+ '(50%)'
+                theme_text_color: "Custom"
+                color: utils.get_color_from_hex('#000000')
+
+            ProgressBar:
+                orientation: "horizontal"
+                value: 27
+                color: (0,0,0,1)
+            Label:
+                text: 'MALHARIA '+'(27%)'
+                theme_text_color: "Custom"
+                color: (0,0,0,1)
+            
+            ProgressBar:
+                orientation: "horizontal"
+                value: 23
+                color: (0,0,0,1)
+            Label:
+                text: 'BOTTOM '+'(23%)'
+                theme_text_color: "Custom"
+                color: (0,0,0,1)
+    
+        BoxLayout:            
+            orientation: 'vertical'
+            padding: 0,0,0,10
+            size_hint: 1, 0.1
+            Button:                
+                text: 'CONSULTAR'
+                background_color: utils.get_color_from_hex('#000000')
+                on_press: root.manager.current = 'TelaConsulta'
+                pos_hint: {'center_x':0.5}
+                size_hint: 0,1
+            
+
+
+<TelaConsulta>:
+    name: 'TelaConsulta'
+
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'left_x':0.9,'center_y':0.9}
+
+        BoxLayout:
+            orientation: 'horizontal'
+            TextInput:
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: '0 mts'
+            Button:                
+                text: 'Consultar'
+
+        BoxLayout:
+            Button:                
+                text: 'Voltar'
+                pos_hint: {'center_x':0.5,'center_y':0.1}
+                on_press: root.manager.current = 'TelaMenu'
